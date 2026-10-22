@@ -41,5 +41,7 @@ class Joueur:
         return self.vies > 0
 
     def __str__(self):
-        coeurs = " ".join(["♥"] * self.vies)
-        return f"{self.pseudo} | score : {self.score} | vies : {coeurs}"
+        coeurs_pleins = ["♥"] * self.vies
+        coeurs_vides = ["♡"] * (VIES_DE_DEPART - self.vies)
+        coeurs = " ".join(coeurs_pleins + coeurs_vides)
+        return f"☺ {self.pseudo} | ★ {self.score} pts | {coeurs}"
