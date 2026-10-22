@@ -1,4 +1,5 @@
 # Questions pour un Python
+
 **Un quiz d'histoire en console**
 
 Petit jeu fait en Python pendant la game jam de la formation.
@@ -45,27 +46,30 @@ python main.py
 
 ```
 questions-pour-un-python/
-├── main.py            # menu et lancement du jeu
-├── joueur.py          # classe Joueur
-├── partie.py          # classe Partie (boucle de jeu, règles)
-├── donnees.py         # chargement et préparation des CSV
-├── scores.py          # sauvegarde des scores et statistiques
+├── src/
+│   └── questions_pour_un_python/
+│       ├── __init__.py
+│       ├── __main__.py    # menu et lancement du jeu
+│       ├── joueur.py      # classe Joueur
+│       ├── partie.py      # classe Partie (boucle de jeu, questions)
+│       ├── donnees.py     # chargement des repères et tirages
+│       └── scores.py      # sauvegarde des scores et statistiques
 ├── data/
-│   ├── reperes_histoire.csv
-│   └── ...            # les autres thèmes
-├── scores.csv         # créé automatiquement à la première partie
-├── requirements.txt
+│   └── reperes_histoire.csv
+├── scores.csv             # créé automatiquement à la première partie
+├── pyproject.toml         # dépendances du projet (uv)
+├── uv.lock                # versions exactes installées
 └── README.md
 ```
 
 ## Les données
 
-| Thème | Source | Etat |
-|---|---|---|
-| Histoire | Repères officiels : Éduscol (voie pro, 2021), programme de primaire 2008 (BO hors-série du 19 juin 2008), liste brevet d'un collège de l'académie d'Amiens | fait |
-| Villes de France | data.gouv.fr, "Communes et villes de France" (population INSEE) | à faire |
-| Pays | Banque mondiale (population) | à faire |
-| Vin | Douane, open data production de vins | bonus si le temps |
+| Thème           | Source                                                                                                                                                          | Etat              |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Histoire         | Repères officiels : Éduscol (voie pro, 2021), programme de primaire 2008 (BO hors-série du 19 juin 2008), liste brevet d'un collège de l'académie d'Amiens | fait              |
+| Villes de France | data.gouv.fr, "Communes et villes de France" (population INSEE)                                                                                                 | à faire          |
+| Pays             | Banque mondiale (population)                                                                                                                                    | à faire          |
+| Vin              | Douane, open data production de vins                                                                                                                            | bonus si le temps |
 
 Chaque fichier garde une colonne `source` pour pouvoir vérifier une réponse.
 
@@ -75,21 +79,22 @@ Pour l'histoire, les dates avant J.-C. sont stockées en négatif (Alésia = -52
 
 On a découpé le projet en deux rôles qui peuvent avancer en même temps.
 
-**SAMI : données et scores**
+**Sami : données et scores**
+
 - `donnees.py`
 - `scores.py`
 - préparation des CSV
 
 **Dorothée : moteur de jeu**
+
 - `joueur.py`
 - `partie.py`
 - `main.py`
 
-### Les "contrats" entre les deux rôles
-
 Pour que chacun puisse coder sans attendre l'autre, on a fixé au début ce que chaque fonction reçoit et renvoie.
 
 `donnees.py`
+
 - `lister_themes()` : renvoie la liste des thèmes disponibles (noms des fichiers dans `data/`)
 - `charger_theme(nom_theme)` : renvoie un DataFrame avec au moins les colonnes `nom`, `valeur`, `unite`, `source`
 - `tirer_duel(df, difficulte)` : renvoie deux lignes du DataFrame (sous forme de dictionnaires) avec deux valeurs différentes
@@ -99,15 +104,18 @@ Pour que chacun puisse coder sans attendre l'autre, on a fixé au début ce que 
 Pour la difficulté : en facile, les valeurs tirées sont éloignées les unes des autres, en difficile elles sont proches.
 
 `scores.py`
+
 - `charger_scores(chemin)` : renvoie un DataFrame des scores, vide si le fichier n'existe pas encore
 - `enregistrer_score(chemin, pseudo, theme, score)` : ajoute une ligne au fichier
 - `afficher_stats(df_scores)` : affiche le classement et quelques stats
 
 `joueur.py`
+
 - classe `Joueur(pseudo)` avec `score`, `vies`, `serie`
 - méthodes `bonne_reponse()`, `mauvaise_reponse()`, `est_vivant()`
 
 `partie.py`
+
 - classe `Partie(joueur, df_theme, difficulte)`
 - `choisir_type_question()` : tire au hasard "duel", "reference" ou "qcm"
 - `poser_duel()`, `poser_reference()`, `poser_qcm()` : une méthode par type de question, chacune renvoie True si le joueur a bon
@@ -116,26 +124,26 @@ Pour la difficulté : en facile, les valeurs tirées sont éloignées les unes d
 
 ### Git
 
-- `main` doit toujours être jouable
 - une branche par fonctionnalité : `feature/chargement-donnees`, `feature/classe-joueur`, `feature/boucle-partie`, `feature/scores`...
-- à chaque relecture on vérifie le PEP 8 (avec flake8)
 - messages de commit du type `feat: ...`, `fix: ...`, `docs: ...`
 
 ## Planning
 
 **Jour 1 matin**
-- [x] création du dépôt et du README
-- [x] CSV histoire (généré à partir de pdfs)
+
+- [X] création du dépôt et du README
+- [X] CSV histoire (généré à partir de pdfs)
 
 **Jour 1 après-midi**
-- [x] Sami : chargement des thèmes et `tirer_duel`
-- [ ] Dorothée : classes Joueur et Partie, avec seulement le duel pour commencer
-- [x] Ensemble : première fusion
-- [ ] Sami : ajout des questions avant/après et QCM
+
+- [X] Sami : chargement des thèmes & questions
+- [X] Dorothée : classes Joueur, Partie
+- [X] Ensemble : première fusion
 - [ ] Dorothée : scores et classement
 - [ ] Sami : niveaux de difficulté
 
 **Jour 2 matin**
+
 - [ ] Dorothée : préparation de la démo
 
 ## Notions du cours utilisées
