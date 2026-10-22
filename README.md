@@ -6,16 +6,16 @@ Petit jeu fait en Python pendant la game jam de la formation.
 
 Le principe : à chaque tour, le jeu tire au hasard un type de question parmi trois, sur des grandes dates de l'histoire de France et du monde.
 
-Le duel : deux événements, il faut trouver lequel s'est passé en premier
-"Qu'est-ce qui s'est passé en premier : le Code noir ou la guerre de Sept Ans ?"
-Avant ou après : le jeu donne la date d'un événement, il faut dire si le deuxième était avant ou après
-"La Bastille a été prise le 14 juillet 1789. Le couronnement de Charlemagne, c'était avant ou après ?"
-Le QCM : une question, quatre années proposées, une seule est juste
-"En quelle année : chute du mur de Berlin ?"
+* **Le duel** : deux événements, il faut trouver lequel s'est passé en premier
+  * "Qu'est-ce qui s'est passé en premier : le Code noir ou la guerre de Sept Ans ?"
+* **Avant ou après** : le jeu donne la date d'un événement, il faut dire si le deuxième était avant ou après
+  * "La Bastille a été prise le 14 juillet 1789. Le couronnement de Charlemagne, c'était avant ou après ?"
+* **Le QCM** : une question, quatre années proposées, une seule est juste
+  * "En quelle année : chute du mur de Berlin ?"
 
 Comme on ne sait jamais quelle question va tomber, ça évite que le jeu devienne répétitif.
 
-On gagne des points à chaque bonne réponse (un peu plus pour le QCM), avec un bonus si on enchaîne. Au bout de 3 erreurs, la partie est finie.
+On gagne des points à chaque bonne réponse (un peu plus pour le QCM), avec un bonus si on enchaîne. Au bout de 3 erreurs, la partie est fini.
 
 > Projet réalisé en binôme : Sami Kabdani & Dorothée Catry
 
@@ -31,16 +31,14 @@ python main.py
 ## Comment on joue
 
 1. On entre son pseudo
-2. On choisit un thème (histoire, villes de France, pays...)
-3. On choisit la difficulté
-   - facile : les deux valeurs sont très différentes
-   - difficile : les valeurs sont proches, il faut vraiment savoir
-4. Le jeu pose les questions en mélangeant les trois types
-   - duel : on répond 1 ou 2
-   - plus ou moins / avant ou après : on répond + ou -
-   - QCM : on répond 1, 2, 3 ou 4
-5. Après chaque réponse, le jeu affiche les vraies valeurs
-6. A la fin, le score est enregistré et on voit le classement
+2. On choisit la difficulté
+   * facile : les dates à comparer sont très éloignées
+   * difficile : les dates sont proches, il faut vraiment savoir
+3. Le jeu pose les questions en mélangeant les trois types
+   * duel et avant/après : on répond 1 ou 2
+   * QCM : on répond 1, 2, 3 ou 4
+4. Après chaque réponse, le jeu affiche les vraies dates
+5. A la fin, le score est enregistré et on voit le classement
 
 ## Structure du projet
 
@@ -64,16 +62,19 @@ questions-pour-un-python/
 
 ## Les données
 
-| Thème           | Source                                                                                                                                                          | Etat              |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| Histoire         | Repères officiels : Éduscol (voie pro, 2021), programme de primaire 2008 (BO hors-série du 19 juin 2008), liste brevet d'un collège de l'académie d'Amiens | fait              |
-| Villes de France | data.gouv.fr, "Communes et villes de France" (population INSEE)                                                                                                 | à faire          |
-| Pays             | Banque mondiale (population)                                                                                                                                    | à faire          |
-| Vin              | Douane, open data production de vins                                                                                                                            | bonus si le temps |
+Les dates viennent des repères officiels des programmes d'histoire :
 
-Chaque fichier garde une colonne `source` pour pouvoir vérifier une réponse.
+* Éduscol, "Fixer des repères en histoire-géographie", voie professionnelle (2021) : les repères de la seconde à la terminale bac pro
+* le programme de primaire de 2008 (BO hors-série n°3 du 19 juin 2008) : pour les dates plus anciennes (Alésia, Clovis, Charlemagne...)
+* la liste des repères du brevet d'un collège de l'académie d'Amiens
 
-Pour l'histoire, les dates avant J.-C. sont stockées en négatif (Alésia = -52). Les périodes (ex : Grande Guerre 1914-1918) ont une année de début et une année de fin, le jeu compare l'année de début.
+Chaque ligne du CSV garde sa source dans une colonne `source`, pour pouvoir vérifier une réponse.
+
+Quelques choix :
+
+* les dates avant J.-C. sont stockées en négatif (Alésia = -52) et affichées "52 av. J.-C."
+* pour les périodes (ex : Grande Guerre 1914-1918), le jeu compare l'année de début
+* le jeu ne met jamais face à face deux événements de la même année
 
 ## Organisation
 
@@ -137,10 +138,9 @@ Pour la difficulté : en facile, les valeurs tirées sont éloignées les unes d
 **Jour 1 après-midi**
 
 - [X] Sami : chargement des thèmes & questions
-- [X] Dorothée : classes Joueur, Partie
+- [X] Dorothée : classes Joueur et Partie + niveaux de difficulté
 - [X] Ensemble : première fusion
-- [ ] Dorothée : scores et classement
-- [ ] Sami : niveaux de difficulté
+- [ ] Sami : scores et classement
 
 **Jour 2 matin**
 
@@ -150,8 +150,8 @@ Pour la difficulté : en facile, les valeurs tirées sont éloignées les unes d
 
 - variables, types, conditions, boucles (la boucle de jeu)
 - fonctions
-- listes et dictionnaires (les duels, les thèmes)
-- fichiers (lecture des CSV, sauvegarde des scores)
+- listes et dictionnaires
+- fichier (lecture de CSV, sauvegarde des scores)
 - POO (classes Joueur et Partie)
 - modules (un fichier par rôle)
 - gestion des erreurs (try / except sur les saisies et les fichiers)
