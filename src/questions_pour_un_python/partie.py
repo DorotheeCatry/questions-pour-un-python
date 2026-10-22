@@ -12,6 +12,9 @@ POINTS = {
 
 NB_CHOIX_QCM = 4
 
+# En dessous de ce nombre de repères pas encore vus, on remet tout en jeu.
+MINIMUM_DISPONIBLES = 10
+
 
 def demander_choix(message, choix_valides):
     """Redemande tant que la saisie ne fait pas partie des choix valides."""
@@ -35,6 +38,22 @@ class Partie:
         self.df_reperes = df_reperes
         self.difficulte = difficulte
         self.numero_tour = 0
+        self.deja_vus = set()
+
+    def reperes_disponibles(self):
+        """Renvoie les repères qui n'ont pas encore été montrés."""
+        disponibles = self.df_reperes[
+            ~self.df_reperes["nom"].isin(self.deja_vus)]
+
+        if len(disponibles) < MINIMUM_DISPONIBLES:
+            self.deja_vus.clear()
+            return self.df_reperes
+        return disponibles
+
+    def marquer_vus(self, *reperes):
+        """Retient les repères montrés pour ne pas les reposer."""
+        for repere in reperes:
+            self.deja_vus.add(repere["nom"])
 
     def choisir_type_question(self):
         """Tire au hasard le type de la prochaine question."""
@@ -42,7 +61,9 @@ class Partie:
 
     def poser_duel(self):
         """Lequel des deux repères est le plus ancien ?"""
-        repere_1, repere_2 = tirer_duel(self.df_reperes, self.difficulte)
+        repere_1, repere_2 = tirer_duel(self.reperes_disponibles(),
+                                        self.difficulte)
+        self.marquer_vus(repere_1, repere_2)
 
         print("⌛ Lequel s'est passé en premier ?")
         print(f"  1. {repere_1['nom']}")
@@ -57,7 +78,9 @@ class Partie:
 
     def poser_avant_apres(self):
         """On donne la date d'un repère, l'autre est-il avant ou après ?"""
-        reference, mystere = tirer_duel(self.df_reperes, self.difficulte)
+        reference, mystere = tirer_duel(self.reperes_disponibles(),
+                                        self.difficulte)
+        self.marquer_vus(reference, mystere)
 
         print(f"⇄ {reference['nom']} : {reference['date_texte']}.")
         print(f"  Et « {mystere['nom']} », c'était avant ou après ?")
@@ -73,7 +96,8 @@ class Partie:
     def poser_qcm(self):
         """En quelle année ? Quatre propositions, une seule juste."""
         bonne, propositions, position_bonne = tirer_qcm(
-            self.df_reperes, NB_CHOIX_QCM, self.difficulte)
+            self.reperes_disponibles(), NB_CHOIX_QCM, self.difficulte)
+        self.marquer_vus(bonne)
 
         if bonne["type"] == "periode":
             print(f"✎ En quelle année a commencé : {bonne['nom']} ?")
