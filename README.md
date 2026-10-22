@@ -124,8 +124,6 @@ Pour la difficulté : en facile, les valeurs tirées sont éloignées les unes d
 - à chaque relecture on vérifie le PEP 8 (avec flake8)
 - messages de commit du type `feat: ...`, `fix: ...`, `docs: ...`
 
-Le suivi des tâches est sur le tableau GitHub Projects (à faire / en cours / terminé), avec une étiquette par rôle.
-
 ## Planning
 
 **Jour 1 matin**
