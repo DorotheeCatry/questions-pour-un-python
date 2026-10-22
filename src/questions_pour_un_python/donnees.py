@@ -5,10 +5,10 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-# donnees.py est dans src/questions_pour_un_python/,
-# le dossier data/ est deux niveaux au-dessus.
+
 CHEMIN_REPERES = (Path(__file__).resolve().parents[2]/ "data" / "reperes_histoire.csv")
 
+# random.random() et random.randint() sont obsolètes, on utilise numpy.random.default_rng() pour un tirage plus sûr
 rng = np.random.default_rng()
 
 

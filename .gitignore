@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# scores des parties (car change à chaque partie)
+scores.csv
