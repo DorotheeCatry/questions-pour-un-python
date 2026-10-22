@@ -1,0 +1,85 @@
+evenement,date_texte,annee_debut,annee_fin,type,niveau,source
+"La découverte de l'Amérique","1492",1492,1492,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Traité de Tordesillas","1494",1494,1494,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Début de la circumnavigation de Magellan","1519",1519,1519,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Jacques Cartier remonte l'embouchure du Saint-Laurent","1535",1535,1535,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Controverse de Valladolid","1550-51",1550,1551,periode,Bac pro 2nde,Eduscol voie pro 2021
+"Fondation de la Compagnie hollandaise des Indes orientales","1602",1602,1602,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Arrivée du Mayflower au cap Cod","1620",1620,1620,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Code noir","1685",1685,1685,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Encyclopédie de Diderot et d'Alembert","1751-1772",1751,1772,periode,Bac pro 2nde,Eduscol voie pro 2021
+"Guerre de Sept Ans","1756-1763",1756,1763,periode,Bac pro 2nde,Eduscol voie pro 2021
+"Guerre d'indépendance des États-Unis d'Amérique","1775-1783",1775,1783,periode,Bac pro 2nde,Eduscol voie pro 2021
+"Déclaration d'indépendance des États-Unis d'Amérique","1776",1776,1776,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Constitution des États-Unis d'Amérique","1787",1787,1787,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Révolution française et Première République","1789-1799",1789,1799,periode,Bac pro 2nde,Eduscol voie pro 2021
+"Déclaration des droits de l'homme et du citoyen","26 août 1789",1789,1789,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Chute de la monarchie en France","10 août 1792",1792,1792,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Proclamation de la République","21 septembre 1792",1792,1792,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Abolition de l'esclavage dans les colonies par la République française (1793 à Saint-Domingue), rétabli en 1802","1794",1794,1794,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Indépendance de Saint-Domingue qui devient Haïti","1804",1804,1804,evenement,Bac pro 2nde,Eduscol voie pro 2021
+"Révolte des canuts lyonnais","1831",1831,1831,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Ateliers nationaux et seconde abolition de l'esclavage en France","1848",1848,1848,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Reconnaissance du droit de grève","1864",1864,1864,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Lois Ferry : école gratuite, laïque et obligatoire, et création des premières écoles nationales professionnelles","1881-82",1881,1882,periode,Bac pro 1re,Eduscol voie pro 2021
+"Loi Waldeck-Rousseau sur le droit de se réunir en syndicat","1884",1884,1884,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Loi sur l'indemnisation des accidents du travail","1898",1898,1898,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Loi sur le droit d'association","1901",1901,1901,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Grande Guerre","1914-18",1914,1918,periode,Bac pro 1re,Eduscol voie pro 2021
+"Génocide des Arméniens et d'autres populations chrétiennes de l'Empire ottoman","1915",1915,1915,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Loi Astier sur l'enseignement technique","1919",1919,1919,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Signature du traité de Versailles","28 juin 1919",1919,1919,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Loi sur les assurances sociales","1928",1928,1928,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Front populaire, lois sociales, accords de Matignon et réformes de Jean Zay","1936",1936,1936,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Début de la guerre en Asie (agression du Japon contre la Chine)","1937",1937,1937,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Accords de Munich","30 septembre 1938",1938,1938,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Seconde Guerre mondiale, génocides des Juifs et des Tsiganes","1939-1945",1939,1945,periode,Bac pro 1re,Eduscol voie pro 2021
+"Appel du général de Gaulle","18 juin 1940",1940,1940,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Brazzaville, capitale de la France libre","28 août 1940",1940,1940,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Publication du Manifeste du peuple algérien","1943",1943,1943,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Fin de la Seconde Guerre mondiale en Europe, massacres de Sétif et Guelma","8 mai 1945",1945,1945,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Charte de San Francisco (création de l'ONU)","26 juin 1945",1945,1945,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Bombardements atomiques sur Hiroshima et Nagasaki","6 et 9 août 1945",1945,1945,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Loi Houphouët-Boigny, abrogation du travail forcé dans les colonies","1946",1946,1946,evenement,Bac pro 1re,Eduscol voie pro 2021
+"Les femmes obtiennent le droit de vote (électrices et éligibles)","1944",1944,1944,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Indépendance de l'Inde et du Pakistan","1947",1947,1947,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Guerre froide","1947-1991",1947,1991,periode,Bac pro Tle,Eduscol voie pro 2021
+"Proclamation de la République populaire de Chine","1er octobre 1949",1949,1949,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Salaire minimum interprofessionnel garanti","1950",1950,1950,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Guerre de Corée","1950-1953",1950,1953,periode,Bac pro Tle,Eduscol voie pro 2021
+"Guerre d'indépendance de l'Algérie","1954-62",1954,1962,periode,Bac pro Tle,Eduscol voie pro 2021
+"Conférence de Bandung","1955",1955,1955,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Traité de Rome","1957",1957,1957,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Proclamation de la Ve République","1958",1958,1958,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Crise des missiles de Cuba","1962",1962,1962,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Élection du président de la République au suffrage universel direct","1962",1962,1962,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Manifestations ouvrières et étudiantes de mai","1968",1968,1968,evenement,Bac pro Tle,Eduscol voie pro 2021
+"La Chine populaire, membre permanent du conseil de sécurité de l'ONU","1971",1971,1971,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Garantie de ressources pour les chômeurs","1974",1974,1974,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Droit de vote à 18 ans","1974",1974,1974,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Accords d'Helsinki","1975",1975,1975,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Réforme Haby (collège unique et création des lycées d'enseignement professionnel)","1975",1975,1975,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Loi Veil sur l'interruption volontaire de grossesse","1975",1975,1975,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Premières lois de décentralisation","1982",1982,1982,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Lois Auroux sur le droit du travail","1982",1982,1982,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Création du baccalauréat professionnel","1985",1985,1985,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Chute du mur de Berlin","1989",1989,1989,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Première guerre du Golfe (« tempête du désert »)","1991",1991,1991,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Ratification du traité de Maastricht","1992",1992,1992,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Loi sur la parité aux élections","2000",2000,2000,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Attentats terroristes aux États-Unis","2001",2001,2001,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Charte de l'environnement","2004",2004,2004,evenement,Bac pro Tle,Eduscol voie pro 2021
+"Révolution russe","1917",1917,1917,evenement,Brevet,Liste DNB college Jean Fernel (ac-amiens)
+"L'Allemagne d'Hitler","1933-1945",1933,1945,periode,Brevet,Liste DNB college Jean Fernel (ac-amiens)
+"Indépendance de l'Algérie","1962",1962,1962,evenement,Brevet,Liste DNB college Jean Fernel (ac-amiens)
+"Première alternance, élection de François Mitterrand","1981",1981,1981,evenement,Brevet,Liste DNB college Jean Fernel (ac-amiens)
+"Alésia (Vercingétorix et Jules César)","52 av. J.-C.",-52,-52,evenement,Primaire cycle 3 (programme 2008),BO hors-serie n3 du 19 juin 2008 (cite au JO QE 3184)
+"Baptême de Clovis","496",496,496,evenement,Primaire cycle 3 (programme 2008),BO hors-serie n3 du 19 juin 2008 (cite au JO QE 3184)
+"Couronnement de Charlemagne","800",800,800,evenement,Primaire cycle 3 (programme 2008),BO hors-serie n3 du 19 juin 2008 (cite au JO QE 3184)
+"Hugues Capet, roi de France","987",987,987,evenement,Primaire cycle 3 (programme 2008),BO hors-serie n3 du 19 juin 2008 (cite au JO QE 3184)
+"Prise de la Bastille","14 juillet 1789",1789,1789,evenement,Primaire cycle 3 (programme 2008),BO hors-serie n3 du 19 juin 2008 (cite au JO QE 3184)
+"Napoléon Ier empereur des Français","1804",1804,1804,evenement,Primaire cycle 3 (programme 2008),BO hors-serie n3 du 19 juin 2008 (cite au JO QE 3184)
+"Loi de séparation des Églises et de l'État","1905",1905,1905,evenement,Primaire cycle 3 (programme 2008),BO hors-serie n3 du 19 juin 2008 (cite au JO QE 3184)
+"Bataille de Verdun","1916",1916,1916,evenement,Primaire cycle 3 (programme 2008),BO hors-serie n3 du 19 juin 2008 (cite au JO QE 3184)
+"Armistice de la Grande Guerre","11 novembre 1918",1918,1918,evenement,Primaire cycle 3 (programme 2008),BO hors-serie n3 du 19 juin 2008 (cite au JO QE 3184)
+"L'euro","2002",2002,2002,evenement,Primaire cycle 3 (programme 2008),BO hors-serie n3 du 19 juin 2008 (cite au JO QE 3184)
