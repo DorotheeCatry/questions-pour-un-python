@@ -1,19 +1,16 @@
 # Questions pour un Python
+**Un quiz d'histoire en console**
 
-**Un quiz d'histoire et de géo, en console**
+Petit jeu fait en Python pendant la game jam de la formation.
 
-Petit jeu fait en Python pendant la game jam de la formation "Data Ingénieur"
+Le principe : à chaque tour, le jeu tire au hasard un type de question parmi trois, sur des grandes dates de l'histoire de France et du monde.
 
-Le principe : à chaque tour, le jeu tire au hasard un type de question parmi trois.
-
-- **Le duel** : deux éléments, il faut trouver celui qui a la plus grande valeur
-  - "Quelle ville est la plus peuplée : Nancy ou Metz ?"
-  - "Qu'est-ce qui s'est passé en premier : le Code noir ou la guerre de Sept Ans ?"
-- **Plus ou moins / avant ou après** : le jeu donne un élément avec sa valeur, il faut dire si le deuxième est au-dessus ou en dessous
-  - "La Bastille a été prise en 1789. Le couronnement de Charlemagne, c'était avant ou après ?"
-  - "Lyon a tant d'habitants. Et Lille, plus ou moins ?"
-- **Le QCM** : une question, quatre réponses, une seule est juste
-  - "En quelle année a eu lieu la chute du mur de Berlin ?"
+Le duel : deux événements, il faut trouver lequel s'est passé en premier
+"Qu'est-ce qui s'est passé en premier : le Code noir ou la guerre de Sept Ans ?"
+Avant ou après : le jeu donne la date d'un événement, il faut dire si le deuxième était avant ou après
+"La Bastille a été prise le 14 juillet 1789. Le couronnement de Charlemagne, c'était avant ou après ?"
+Le QCM : une question, quatre années proposées, une seule est juste
+"En quelle année : chute du mur de Berlin ?"
 
 Comme on ne sait jamais quelle question va tomber, ça évite que le jeu devienne répétitif.
 
@@ -130,14 +127,12 @@ Le suivi des tâches est sur le tableau GitHub Projects (à faire / en cours / t
 
 **Jour 1 matin**
 - [x] création du dépôt et du README
-- [ ] tableau des tâches
-- [x] CSV histoire (généré à partir de pdf)
-- [ ] CSV villes et pays
+- [x] CSV histoire (généré à partir de pdfs)
 
 **Jour 1 après-midi**
-- [ ] Sami : chargement des thèmes et `tirer_duel`
+- [x] Sami : chargement des thèmes et `tirer_duel`
 - [ ] Dorothée : classes Joueur et Partie, avec seulement le duel pour commencer
-- [ ] Ensemble : première fusion
+- [x] Ensemble : première fusion
 - [ ] Sami : ajout des questions avant/après et QCM
 - [ ] Dorothée : scores et classement
 - [ ] Sami : niveaux de difficulté
