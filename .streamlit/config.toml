@@ -1,0 +1,11 @@
+# Thème sombre avec un vert menthe
+[theme]
+base = "dark"
+primaryColor = "#1DB889"              # vert menthe (boutons, sélection)
+backgroundColor = "#0B0F0E"           # presque noir, légèrement vert
+secondaryBackgroundColor = "#16211D"  # un peu plus clair (saisies, tableaux)
+textColor = "#E3F2EC"                 # blanc teinté de vert, lisible
+
+# Cache le bouton "Deploy" en haut à droite
+[client]
+toolbarMode = "minimal"

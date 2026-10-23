@@ -5,7 +5,6 @@ from pathlib import Path
 
 import pandas as pd
 
-
 # scores.csv est à la racine du projet.
 CHEMIN_SCORES = Path(__file__).resolve().parents[2] / "scores.csv"
 COLONNES = ["date", "pseudo", "score", "meilleure_serie"]
