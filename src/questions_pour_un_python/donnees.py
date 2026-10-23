@@ -5,10 +5,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+CHEMIN_REPERES = (Path(__file__).resolve().parents[2] / "data" / "reperes_histoire.csv")
 
-CHEMIN_REPERES = (Path(__file__).resolve().parents[2]/ "data" / "reperes_histoire.csv")
-
-# random.random() et random.randint() sont obsolètes, on utilise numpy.random.default_rng() pour un tirage plus sûr
+# random.randint est obsolète, on utilise un générateur de nombres aléatoires pour pouvoir le réinitialiser
 rng = np.random.default_rng()
 
 
@@ -73,7 +72,7 @@ def tirer_qcm(df, nb_choix, difficulte):
 
     propositions = [bonne.to_dict()] + pieges.to_dict("records")
     rng.shuffle(propositions)
-    position_bonne = next(i for i, p in enumerate(propositions) if p["annee"] == bonne["annee"])
+    position_bonne = next(i for i, p in enumerate(propositions)if p["annee"] == bonne["annee"])
     return bonne.to_dict(), propositions, position_bonne
 
 

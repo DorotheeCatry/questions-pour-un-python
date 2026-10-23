@@ -1,0 +1,290 @@
+/* Style de Questions pour un Python (version Streamlit) */
+
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap");
+
+:root {
+    --menthe: #1DB889;
+    --menthe-clair: #5FE0B5;
+    --fond: #0B0F0E;
+    --carte: #16211D;
+    --bordure: rgba(29, 184, 137, 0.25);
+    --texte: #E3F2EC;
+    --texte-doux: #9BB5AA;
+    --rouge: #F0616D;
+}
+
+/* Fond avec un léger halo vert en haut de la page */
+.stApp {
+    background: radial-gradient(circle at 50% 0%, #15302A 0%, var(--fond) 55%);
+}
+
+h1, h2, h3, .question, .badge, .vs, .score-final, .pastille b {
+    font-family: "Fredoka", "Source Sans Pro", sans-serif;
+}
+
+/* --- Accueil --- */
+
+.accroche {
+    text-align: center;
+    color: var(--texte-doux);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.regle {
+    background: var(--carte);
+    border: 1px solid var(--bordure);
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    height: 100%;
+}
+
+.regle .icone {
+    font-size: 1.8rem;
+    color: var(--menthe);
+}
+
+.regle p {
+    color: var(--texte-doux);
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0;
+}
+
+.infos-regles {
+    text-align: center;
+    color: var(--texte-doux);
+    font-size: 0.9rem;
+}
+
+/* --- Cartes (conteneurs Streamlit avec une clé) --- */
+
+.st-key-carte_question,
+.st-key-carte_depart,
+.st-key-carte_fin {
+    background: var(--carte);
+    border: 1px solid var(--bordure);
+    border-radius: 20px;
+    padding: 1.2rem 1.4rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* --- Barre de statut --- */
+
+.statut {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.pastille {
+    background: var(--carte);
+    border: 1px solid var(--bordure);
+    border-radius: 999px;
+    padding: 0.4rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.pastille span {
+    color: var(--texte-doux);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pastille b {
+    font-size: 1.2rem;
+    color: var(--menthe-clair);
+}
+
+/* --- Question --- */
+
+.entete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    background: rgba(29, 184, 137, 0.15);
+    color: var(--menthe-clair);
+    border-radius: 999px;
+    padding: 0.25rem 0.9rem;
+    font-size: 0.95rem;
+}
+
+.numero {
+    color: var(--texte-doux);
+    font-size: 0.9rem;
+}
+
+.question {
+    font-size: 1.35rem;
+    line-height: 1.4;
+    padding-top: 0.6rem;
+    margin: 0 0 0.5rem;
+}
+
+.question strong {
+    color: var(--menthe-clair);
+}
+
+.vs {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--menthe);
+}
+
+/* Boutons de réponse */
+[class*="st-key-option_"] button {
+    min-height: 4rem;
+    border-radius: 14px;
+    border: 1px solid var(--bordure);
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.15s ease;
+}
+
+[class*="st-key-option_"] button p {
+    font-size: 1.05rem;
+}
+
+[class*="st-key-option_"] button:hover {
+    border-color: var(--menthe);
+    background: rgba(29, 184, 137, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Choix une fois la réponse donnée */
+.option {
+    min-height: 4rem;
+    border-radius: 14px;
+    border: 1px solid var(--bordure);
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+.option.juste {
+    border-color: var(--menthe);
+    background: rgba(29, 184, 137, 0.18);
+}
+
+.option.faux {
+    border-color: var(--rouge);
+    background: rgba(240, 97, 109, 0.15);
+}
+
+.option.neutre {
+    opacity: 0.45;
+}
+
+.option .detail {
+    font-size: 0.85rem;
+    color: var(--texte-doux);
+    margin-top: 0.2rem;
+}
+
+/* --- Retour après la réponse --- */
+
+.retour {
+    border-radius: 14px;
+    padding: 0.8rem 1rem;
+    font-weight: 600;
+}
+
+.retour.juste {
+    background: rgba(29, 184, 137, 0.15);
+    color: var(--menthe-clair);
+}
+
+.retour.faux {
+    background: rgba(240, 97, 109, 0.12);
+    color: var(--rouge);
+}
+
+.revelation {
+    color: var(--texte-doux);
+    margin: 0.6rem 0 0;
+}
+
+.revelation b {
+    color: var(--texte);
+}
+
+/* --- Fin de partie --- */
+
+.fin-titre {
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.score-final {
+    font-size: 3.5rem;
+    color: var(--menthe);
+    text-align: center;
+    line-height: 1.1;
+}
+
+.sous-score {
+    text-align: center;
+    color: var(--texte-doux);
+}
+
+.record {
+    text-align: center;
+    color: #F8C030;
+    font-weight: 700;
+}
+
+/* --- Classement --- */
+
+.classement {
+    background: var(--carte);
+    border: 1px solid var(--bordure);
+    border-radius: 20px;
+    padding: 1rem 1.4rem;
+    margin-top: 1.5rem;
+}
+
+.classement h3 {
+    margin: 0 0 0.5rem;
+    padding: 0;
+}
+
+.ligne-score {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ligne-score:last-child {
+    border-bottom: none;
+}
+
+.rang {
+    width: 2rem;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.pseudo {
+    flex: 1;
+}
+
+.points {
+    color: var(--menthe-clair);
+    font-weight: 600;
+}
