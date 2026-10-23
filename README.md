@@ -107,7 +107,7 @@ Pour la difficulté : en facile, les valeurs tirées sont éloignées les unes d
 `scores.py`
 
 - `charger_scores(chemin)` : renvoie un DataFrame des scores, vide si le fichier n'existe pas encore
-- `enregistrer_score(chemin, pseudo, theme, score)` : ajoute une ligne au fichier
+- `enregistrer_score(chemin, pseudo, score)` : ajoute une ligne au fichier
 - `afficher_stats(df_scores)` : affiche le classement et quelques stats
 
 `joueur.py`
@@ -140,11 +140,12 @@ Pour la difficulté : en facile, les valeurs tirées sont éloignées les unes d
 - [X] Sami : chargement des thèmes & questions
 - [X] Dorothée : classes Joueur et Partie + niveaux de difficulté
 - [X] Ensemble : première fusion
-- [ ] Sami : scores et classement
+- [X] Sami : scores et classement
+- [X] Ensemble : Génération d'un streamlit pour présentation du jeu
 
 **Jour 2 matin**
 
-- [ ] Dorothée : préparation de la démo
+- [ ] Dorothée : Préparation de la démo & Présentation
 
 ## Notions du cours utilisées
 
