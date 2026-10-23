@@ -9,7 +9,7 @@ from pathlib import Path
 import streamlit as st
 
 from questions_pour_un_python.donnees import (charger_reperes, formater_annee,
-                                                tirer_duel, tirer_qcm)
+                                              tirer_duel, tirer_qcm)
 from questions_pour_un_python.joueur import VIES_DE_DEPART, Joueur
 from questions_pour_un_python.partie import NB_CHOIX_QCM, POINTS, Partie
 from questions_pour_un_python.scores import charger_scores, enregistrer_score
@@ -28,7 +28,7 @@ TYPES = {
 MEDAILLES = ["🥇", "🥈", "🥉", "4", "5"]
 
 st.set_page_config(page_title="Questions pour un Python",
-                    page_icon=str(LOGO))
+                   page_icon=str(LOGO), layout="wide")
 
 
 def html(contenu):
@@ -36,7 +36,9 @@ def html(contenu):
     st.markdown(contenu, unsafe_allow_html=True)
 
 
-html(f"<style>{STYLE.read_text(encoding='utf-8')}</style>")
+# Si le fichier de style manque, le jeu marche quand même, sans style.
+if STYLE.exists():
+    html(f"<style>{STYLE.read_text(encoding='utf-8')}</style>")
 
 
 @st.cache_data
@@ -83,9 +85,9 @@ def nouvelle_question(partie):
     return {
         "type": type_question,
         "titre": (f"{escape(repere_1['nom'])} : "
-                    f"<strong>{escape(repere_1['date_texte'])}</strong>.<br>"
-                    f"Et « {escape(repere_2['nom'])} », "
-                    "c'était avant ou après ?"),
+                  f"<strong>{escape(repere_1['date_texte'])}</strong>.<br>"
+                  f"Et « {escape(repere_2['nom'])} », "
+                  "c'était avant ou après ?"),
         "options": ["Avant", "Après"],
         "bonne": 0 if repere_2["annee"] < repere_1["annee"] else 1,
         "a_reveler": [repere_2],
@@ -141,10 +143,12 @@ def retour_accueil():
 
 # --- Affichage : éléments communs ---
 
-def afficher_logo(taille):
-    """Logo centré, plus grand quand la colonne du milieu est plus large."""
-    _, milieu, _ = st.columns([1, taille, 1])
-    milieu.image(str(LOGO))
+def colonnes_page():
+    """
+    Découpe la page : logo à gauche (1/3), contenu à droite (2/3).
+    Les deux colonnes sont centrées verticalement l'une par rapport à l'autre.
+    """
+    return st.columns([1, 2], gap="large", vertical_alignment="center")
 
 
 def afficher_classement():
@@ -163,41 +167,49 @@ def afficher_classement():
             "</div>"
         )
     html('<div class="classement"><h3>🏆 Meilleurs scores</h3>'
-            + "".join(lignes) + "</div>")
+         + "".join(lignes) + "</div>")
 
 
 # --- Écran d'accueil ---
 
 def afficher_accueil():
-    afficher_logo(taille=2)
-    html('<p class="accroche">Teste tes connaissances sur les grandes '
-            "dates de l'histoire de France et du monde !</p>")
+    gauche, droite = colonnes_page()
 
-    regles = [
-        ("⚔", "Duel", "Lequel s'est passé en premier ?"),
-        ("⇄", "Avant ou après", "On te donne une date, situe l'autre."),
-        ("✎", "QCM", "Quatre années, une seule est la bonne."),
-    ]
-    for colonne, (icone, titre, texte) in zip(st.columns(3), regles):
-        with colonne:
-            html(f'<div class="regle"><div class="icone">{icone}</div>'
-                f"<b>{titre}</b><p>{texte}</p></div>")
+    with gauche:
+        st.image(str(LOGO))
+        afficher_classement()
 
-    st.write("")
-    with st.container(key="carte_depart"):
-        st.text_input("Ton pseudo", key="pseudo",
-                    placeholder="Ex : Vercingétorix")
-        st.radio("Difficulté", ["facile", "difficile"], key="difficulte",
-                    horizontal=True,
-                    captions=["Dates éloignées", "Dates proches"])
-        st.button("▶ Commencer la partie", on_click=demarrer,
-                    type="primary", width="stretch")
-        if st.session_state.get("erreur"):
-            st.error(st.session_state.erreur)
+    with droite:
+        html('<p class="accroche">Teste tes connaissances sur les grandes '
+             "dates de l'histoire de France et du monde !</p>")
 
-    html('<p class="infos-regles">💚💚💚 Trois vies · ⚡ Bonus à partir de '
-            "3 bonnes réponses d'affilée</p>")
-    afficher_classement()
+        # &nbsp; = espace insécable : le "?" ne passe pas seul à la ligne
+        regles = [
+            ("⚔", "Duel", "Lequel s'est passé en premier&nbsp;?"),
+            ("⇄", "Avant ou après", "Une date est donnée, situe l'autre."),
+            ("✎", "QCM", "Quatre années, une seule est la bonne."),
+        ]
+        # Une grille CSS : les trois cartes ont toujours la même hauteur
+        cartes = "".join(
+            f'<div class="regle"><div class="icone">{icone}</div>'
+            f"<b>{titre}</b><p>{texte}</p></div>"
+            for icone, titre, texte in regles
+        )
+        html(f'<div class="regles">{cartes}</div>')
+
+        with st.container(key="carte_depart"):
+            st.text_input("Ton pseudo", key="pseudo",
+                          placeholder="Ex : Vercingétorix")
+            st.radio("Difficulté", ["facile", "difficile"],
+                     key="difficulte", horizontal=True,
+                     captions=["Dates éloignées", "Dates proches"])
+            st.button("▶ Commencer la partie", on_click=demarrer,
+                      type="primary", width="stretch")
+            if st.session_state.get("erreur"):
+                st.error(st.session_state.erreur)
+
+        html('<p class="infos-regles">💚💚💚 Trois vies · ⚡ Bonus à partir '
+             "de 3 bonnes réponses d'affilée</p>")
 
 
 # --- Écran de jeu ---
@@ -242,16 +254,16 @@ def afficher_options(question, reponse):
         with case:
             if reponse is None:
                 st.button(option, key=f"option_{i}", on_click=repondre,
-                            args=(i,), width="stretch")
+                          args=(i,), width="stretch")
                 continue
 
             detail = ""
             if "details" in question:
                 detail = (f'<span class="detail">'
-                        f'{escape(question["details"][i])}</span>')
+                          f'{escape(question["details"][i])}</span>')
             classe = classe_option(i, question, reponse)
             html(f'<div class="option {classe}">{escape(option)}'
-                f"{detail}</div>")
+                 f"{detail}</div>")
 
 
 def afficher_retour(question, reponse):
@@ -266,7 +278,7 @@ def afficher_retour(question, reponse):
 
     for repere in question["a_reveler"]:
         html(f'<p class="revelation">➜ <b>{escape(repere["nom"])}</b> : '
-            f'{escape(repere["date_texte"])}</p>')
+             f'{escape(repere["date_texte"])}</p>')
 
 
 def afficher_partie():
@@ -275,28 +287,37 @@ def afficher_partie():
     question = st.session_state.question
     reponse = st.session_state.reponse
 
-    afficher_logo(taille=1)
-    afficher_statut(joueur)
+    partie_finie = reponse is not None and not joueur.est_vivant()
+    gauche, droite = colonnes_page()
 
-    with st.container(key="carte_question"):
-        icone, nom_type = TYPES[question["type"]]
-        html('<div class="entete">'
-            f'<span class="badge">{icone} {nom_type}</span>'
-            f'<span class="numero">Question {partie.numero_tour}</span>'
-            "</div>")
-        html(f'<p class="question">{question["titre"]}</p>')
+    with gauche:
+        st.image(str(LOGO))
+        # En fin de partie, le classement remplace les pastilles
+        if partie_finie:
+            afficher_classement()
+        else:
+            afficher_statut(joueur)
 
-        afficher_options(question, reponse)
+    with droite:
+        if partie_finie:
+            afficher_fin(joueur)
 
-        if reponse is not None:
-            afficher_retour(question, reponse)
-            if joueur.est_vivant():
-                st.write("")
-                st.button("Question suivante ➜", on_click=question_suivante,
-                            type="primary", width="stretch")
+        with st.container(key="carte_question"):
+            icone, nom_type = TYPES[question["type"]]
+            html('<div class="entete">'
+                 f'<span class="badge">{icone} {nom_type}</span>'
+                 f'<span class="numero">Question {partie.numero_tour}</span>'
+                 "</div>")
+            html(f'<p class="question">{question["titre"]}</p>')
 
-    if reponse is not None and not joueur.est_vivant():
-        afficher_fin(joueur)
+            afficher_options(question, reponse)
+
+            if reponse is not None:
+                afficher_retour(question, reponse)
+                if joueur.est_vivant():
+                    st.button("Question suivante ➜",
+                              on_click=question_suivante, type="primary",
+                              width="stretch")
 
 
 # --- Fin de partie ---
@@ -306,24 +327,21 @@ def afficher_fin(joueur):
     if not st.session_state.score_enregistre:
         anciens_scores = charger_scores()
         st.session_state.record = (anciens_scores.empty or joueur.score
-                                    > anciens_scores["score"].max())
+                                   > anciens_scores["score"].max())
         enregistrer_score(joueur)
         st.session_state.score_enregistre = True
         if st.session_state.record and joueur.score > 0:
             st.balloons()
 
-    st.write("")
     with st.container(key="carte_fin"):
         html('<h2 class="fin-titre">☠ Partie terminée !</h2>')
         html(f'<div class="score-final">{joueur.score} pts</div>')
         html(f'<p class="sous-score">⚡ Meilleure série : '
-            f"{joueur.meilleure_serie}</p>")
+             f"{joueur.meilleure_serie}</p>")
         if st.session_state.record and joueur.score > 0:
             html('<p class="record">🎉 Nouveau record !</p>')
         st.button("↺ Rejouer", on_click=retour_accueil, type="primary",
-                    width="stretch")
-
-    afficher_classement()
+                  width="stretch")
 
 
 if "partie" in st.session_state:
